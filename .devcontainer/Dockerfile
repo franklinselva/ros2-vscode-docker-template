@@ -1,5 +1,7 @@
 FROM athackst/ros2:foxy-dev 
 
+LABEL maintainer="Selvakumar <franklinselva10@gmail.com>"
+
 # ** [Optional] Uncomment this section to install additional packages. **
 #
 # ENV DEBIAN_FRONTEND=noninteractive
@@ -14,4 +16,7 @@ FROM athackst/ros2:foxy-dev
 
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
+EXPOSE 2112/tcp
+ENV $CWD = $(WORKSPACE)
+
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
